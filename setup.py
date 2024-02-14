@@ -1,11 +1,13 @@
-from setuptools import find_packages,setup
+from setuptools import find_packages, setup
+
 # it will find package inside this project dir.
 from typing import List
 
 
-HYPEN_E_DOT ="-e ."
+HYPEN_E_DOT = "-e ."
 
-def get_requirements(file_path:str)->List[str]:
+
+def get_requirements(file_path: str) -> List[str]:
     """This function will return list of requirements.
 
     Args:
@@ -21,7 +23,7 @@ def get_requirements(file_path:str)->List[str]:
         # reading each line.
         requirements = file_obj.readlines()
         # replacing "/n" with blank
-        requirements = [req.replace("\n","").strip() for req in requirements]
+        requirements = [req.replace("\n", "").strip() for req in requirements]
 
         # dont want to run -e .
         if HYPEN_E_DOT in requirements:
@@ -31,11 +33,10 @@ def get_requirements(file_path:str)->List[str]:
 
 
 setup(
-    name = 'mlproject',
-    version = '0.0.1',
-    author='jay',
-    author_email='jaykhade2023@gmail.com',
+    name="mlproject",
+    version="0.0.1",
+    author="jay",
+    author_email="jaykhade2023@gmail.com",
     packages=find_packages(),
-    install_requires = get_requirements('requirements.txt')
-    )
-    
+    install_requires=get_requirements("requirements.txt"),
+)
